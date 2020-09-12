@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="tttcss.css">
+	<title>Tic Tac Toe</title>
+</head>
+<body>
+<!---  <h1 style="position: absolute; top: 38px; left: 580px;"><button class="butu" type="button">TANKI</button></h1> 
+  <h1 style="position: absolute; top: 250px;left: 900px;">NAVEEN</h1>
+  <h1 style="position:absolute; top:250px;left:300px;">NAVTOSH</h1>-->
+<!--  <h1 style="position: absolute; top: 0px; left: 0px;"><a class="google" href="https://www.google.co.in/">Google</a></h1>-->
+ <div class="grid-container">
+  <div class="grid-item" onclick="JavaScript : fun(1)" id="grid1"></div>
+  <div class="grid-item" onclick="JavaScript : fun(2)" id="grid2"></div>
+  <div class="grid-item" onclick="JavaScript : fun(3)" id="grid3"></div>
+  <div class="grid-item" onclick="JavaScript : fun(4)" id="grid4"></div>
+  <div class="grid-item" onclick="JavaScript : fun(5)" id="grid5"></div>
+  <div class="grid-item" onclick="JavaScript : fun(6)" id="grid6"></div>
+  <div class="grid-item" onclick="JavaScript : fun(7)" id="grid7"></div>
+  <div class="grid-item" onclick="JavaScript : fun(8)" id="grid8"></div>
+  <div class="grid-item" onclick="JavaScript : fun(9)" id="grid9"></div>
+</div>
+<script>
+	var a=[0,0,0,0,0,0,0,0,0];
+	var b=0;
+	function fun(i){
+			if(a[i-1]===0&&b%2===0)
+			{
+			x = document.getElementById('grid'+i);
+			x.innerHTML = 'X';
+			a[i-1]=1;
+			b+=1;
+			}
+			if(a[i-1]===0&&b%2!=0){
+				x = document.getElementById('grid'+i);
+			x.innerHTML = 'O';
+			a[i-1]=2;	
+			b+=1;
+			}
+	for(j=0;j<8;j+=3)
+	if((a[j]===1&&a[j+1]===1&&a[j+2]===1))
+	{
+		setTimeout(function(){ alert("X won"); }, 500);
+		setTimeout(function(){ document.location.reload(); }, 3000);
+}	
+for(j=0;j<8;j+=3)
+	if((a[j]===2&&a[j+1]===2&&a[j+2]===2))
+	{
+		setTimeout(function(){ alert("O won"); }, 500);
+		setTimeout(function(){ document.location.reload(); }, 3000);
+}	
+for(j=0;j<3;j+=1)
+	if((a[j]===1&&a[j+3]===1&&a[j+6]===1))
+	{
+		setTimeout(function(){ alert("X won"); }, 500);
+		setTimeout(function(){ document.location.reload(); }, 3000);
+}	
+for(j=0;j<3;j+=1)
+	if((a[j]===2&&a[j+3]===2&&a[j+6]===2))
+	{
+		setTimeout(function(){ alert("O won"); }, 500); setTimeout(function(){ document.location.reload(); }, 3000);
+}	
+if((a[0]===1&&a[4]===1&&a[8]===1)||(a[2]===1&&a[4]===1&&a[6]===1))
+	{ setTimeout(function(){ alert("X won"); }, 500); setTimeout(function(){ document.location.reload(); }, 3000);}
+if((a[0]===2&&a[4]===2&&a[8]===2)||(a[2]===2&&a[4]===2&&a[6]===2))
+	{setTimeout(function(){ alert("O won"); }, 500); setTimeout(function(){ document.location.reload(); }, 3000);}
+
+	//for(var j=0;j<8;j+=3)
+	//if((document.getElementById('grid'+j)==='O'&&document.getElementById('grid'+(j+1))==='O'&&document.getElementById('grid'+(j+2))==='O'))
+	//{
+//		alert("O won");
+//	}
+	if(b===9)
+	{
+		setTimeout(function(){ alert("Draws"); }, 500); setTimeout(function(){ document.location.reload(); }, 3000);}
+	}
+</script>
+</body>
+</html>
