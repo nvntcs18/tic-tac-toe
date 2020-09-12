@@ -24,6 +24,7 @@
 <script>
 	var a=[0,0,0,0,0,0,0,0,0];
 	var b=0;
+	var f = 0;
 	function fun(i){
 			if(a[i-1]===0&&b%2===0)
 			{
@@ -41,37 +42,42 @@
 	for(j=0;j<8;j+=3)
 	if((a[j]===1&&a[j+1]===1&&a[j+2]===1))
 	{
+		f = 0;
 		setTimeout(function(){ alert("X won"); }, 500);
 		setTimeout(function(){ document.location.reload(); }, 3000);
 }	
 for(j=0;j<8;j+=3)
 	if((a[j]===2&&a[j+1]===2&&a[j+2]===2))
 	{
+		f = 0;
 		setTimeout(function(){ alert("O won"); }, 500);
 		setTimeout(function(){ document.location.reload(); }, 3000);
 }	
 for(j=0;j<3;j+=1)
 	if((a[j]===1&&a[j+3]===1&&a[j+6]===1))
 	{
+		f = 0;
 		setTimeout(function(){ alert("X won"); }, 500);
 		setTimeout(function(){ document.location.reload(); }, 3000);
 }	
 for(j=0;j<3;j+=1)
 	if((a[j]===2&&a[j+3]===2&&a[j+6]===2))
 	{
+		f = 0;
 		setTimeout(function(){ alert("O won"); }, 500); setTimeout(function(){ document.location.reload(); }, 3000);
 }	
 if((a[0]===1&&a[4]===1&&a[8]===1)||(a[2]===1&&a[4]===1&&a[6]===1))
-	{ setTimeout(function(){ alert("X won"); }, 500); setTimeout(function(){ document.location.reload(); }, 3000);}
+	{ f = 0;
+		setTimeout(function(){ alert("X won"); }, 500); setTimeout(function(){ document.location.reload(); }, 3000);}
 if((a[0]===2&&a[4]===2&&a[8]===2)||(a[2]===2&&a[4]===2&&a[6]===2))
-	{setTimeout(function(){ alert("O won"); }, 500); setTimeout(function(){ document.location.reload(); }, 3000);}
+	{f = 0; setTimeout(function(){ alert("O won"); }, 500); setTimeout(function(){ document.location.reload(); }, 3000);}
 
 	//for(var j=0;j<8;j+=3)
 	//if((document.getElementById('grid'+j)==='O'&&document.getElementById('grid'+(j+1))==='O'&&document.getElementById('grid'+(j+2))==='O'))
 	//{
 //		alert("O won");
 //	}
-	if(b===9)
+	if(b===9 && f == 1)
 	{
 		setTimeout(function(){ alert("Draws"); }, 500); setTimeout(function(){ document.location.reload(); }, 3000);}
 	}
